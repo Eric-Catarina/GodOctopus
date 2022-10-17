@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="firstOctopusProject"
-run/main_scene="res://scenes/firstScene.tscn"
+run/main_scene="res://scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
 [gui]
