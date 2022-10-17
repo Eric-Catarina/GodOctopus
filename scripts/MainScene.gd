@@ -18,6 +18,13 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 
+func _on_ScoreTimer_timeout():
+	score += 1
+
+
+func _on_StartTimer_timeout():
+	$MobTimer.start()
+	$ScoreTimer.start()
 
 func _on_MobTimer_timeout():
 
@@ -43,22 +50,15 @@ func _on_MobTimer_timeout():
 	direction += rand_range(-PI / 4, PI / 4)
 
 	mob.rotation = direction
-
 	# Choose the velocity for the mob.
-
 	var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
 
-	mob.linear_velocity = velocity.rotated(direction)
+	var RigidBodyOfTheMob = mob.get_node("Mob")
 
+	RigidBodyOfTheMob.linear_velocity = velocity.rotated(direction)
+	
 	# Spawn the mob by adding it to the Main scene.
 
 	add_child(mob)
 
 
-func _on_ScoreTimer_timeout():
-	score += 1
-
-
-func _on_StartTimer_timeout():
-	$MobTimer.start()
-	$ScoreTimer.start()

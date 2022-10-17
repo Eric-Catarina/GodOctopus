@@ -32,9 +32,6 @@ height = 10.0
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 2, 6 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Mob" type="RigidBody2D" parent="."]
 collision_mask = 0
